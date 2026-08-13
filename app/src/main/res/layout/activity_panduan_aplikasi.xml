@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/da_profil_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/da_profil_header_bg"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/da_profil_card_bg"
+                xmlns:app="http://schemas.android.com/apk/res-auto">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- 1. Dashboard Admin -->
+                    <TextView
+                        style="@style/PanduanJudulItem"
+                        android:text="1. Dashboard Admin"/>
+                    <TextView
+                        style="@style/PanduanIsiItem"
+                        android:text="Halaman utama setelah login. Menampilkan ringkasan data seperti jumlah anggota, proposal masuk, dan status kredit aktif. Dari sini admin bisa langsung akses menu lain lewat bottom navigation."/>
+
+                    <View style="@style/PanduanDivider"/>
+
+                    <!-- 2. Kelola Pengumuman -->
+                    <TextView
+                        style="@style/PanduanJudulItem"
+                        android:text="2. Kelola Pengumuman"/>
+                    <TextView
+                        style="@style/PanduanIsiItem"
+                        android:text="Tekan tombol Tambah (ikon +) untuk membuat pengumuman baru. Isi judul dan isi pengumuman, lalu tekan Simpan. Untuk mengubah pengumuman lama, tekan pengumuman yang ingin diedit. Untuk menghapus, tekan ikon tempat sampah pada pengumuman terkait."/>
+
+                    <View style="@style/PanduanDivider"/>
+
+                    <!-- 3. Catat Angsuran -->
+                    <TextView
+                        style="@style/PanduanJudulItem"
+                        android:text="3. Catat Angsuran"/>
+                    <TextView
+                        style="@style/PanduanIsiItem"
+                        android:text="Pilih nama anggota dari daftar kredit aktif, masukkan jumlah angsuran yang dibayarkan, lalu tekan Simpan untuk mencatat pembayaran. Riwayat pembayaran otomatis tersimpan dan bisa dilihat di menu Riwayat Pembayaran."/>
+
+                    <View style="@style/PanduanDivider"/>
+
+                    <!-- 4. Riwayat Pembayaran -->
+                    <TextView
+                        style="@style/PanduanJudulItem"
+                        android:text="4. Riwayat Pembayaran"/>
+                    <TextView
+                        style="@style/PanduanIsiItem"
+                        android:text="Menampilkan daftar seluruh transaksi angsuran yang sudah tercatat, diurutkan berdasarkan tanggal terbaru. Bisa digunakan untuk mengecek anggota mana yang sudah atau belum membayar."/>
+
+                    <View style="@style/PanduanDivider"/>
+
+                    <!-- 5. Riwayat Aktivitas -->
+                    <TextView
+                        style="@style/PanduanJudulItem"
+                        android:text="5. Riwayat Aktivitas"/>
+                    <TextView
+                        style="@style/PanduanIsiItem"
+                        android:text="Menampilkan log seluruh aktivitas yang terjadi di sistem, seperti pengumuman dibuat, angsuran dicatat, dan proposal disetujui, dalam satu tampilan feed."/>
+
+                    <View style="@style/PanduanDivider"/>
+
+                    <!-- 6. Laporan Keuangan -->
+                    <TextView
+                        style="@style/PanduanJudulItem"
+                        android:text="6. Laporan Keuangan"/>
+                    <TextView
+                        style="@style/PanduanIsiItem"
+                        android:text="Menampilkan ringkasan keuangan dalam bentuk tab, misalnya total pemasukan angsuran dan status kredit per periode."/>
+
+                    <View style="@style/PanduanDivider"/>
+
+                    <!-- 7. Pengelolaan Anggota -->
+                    <TextView
+                        style="@style/PanduanJudulItem"
+                        android:text="7. Pengelolaan Anggota"/>
+                    <TextView
+                        style="@style/PanduanIsiItem"
+                        android:text="Tempat admin melihat, menambah, atau memperbarui data anggota SPP yang terdaftar dalam sistem."/>
+
+                    <View style="@style/PanduanDivider"/>
+
+                    <!-- 8. Profil Admin -->
+                    <TextView
+                        style="@style/PanduanJudulItem"
+                        android:text="8. Profil Admin"/>
+                    <TextView
+                        style="@style/PanduanIsiItemTerakhir"
+                        android:text="Admin bisa mengubah foto profil, nama, password, serta mengakses halaman panduan ini melalui menu Aplikasi."/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+
+    <!-- Background biru gelap gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:type="linear"
+                android:angle="135"
+                android:startColor="#0D1757"
+                android:centerColor="#1A237E"
+                android:endColor="#283593"/>
+        </shape>
+    </item>
+
+    <!-- Logo di tengah -->
+    <item
+        android:width="160dp"
+        android:height="160dp"
+        android:gravity="center">
+        <bitmap
+            android:src="@drawable/logo_bumdesma"
+            android:gravity="center"/>
+    </item>
+
+</layer-list>

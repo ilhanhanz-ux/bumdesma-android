@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_admin_beranda"
+        android:title="Beranda"
+        android:icon="@drawable/ic_home_24" />
+    <item
+        android:id="@+id/nav_admin_pengelolaan"
+        android:title="Pengelolaan"
+        android:icon="@drawable/ic_folder_24" />
+    <item
+        android:id="@+id/nav_admin_notifikasi"
+        android:title="Notifikasi"
+        android:icon="@drawable/ic_notifications_24" />
+    <item
+        android:id="@+id/nav_admin_akun"
+        android:title="Akun"
+        android:icon="@drawable/ic_person_24" />
+</menu>

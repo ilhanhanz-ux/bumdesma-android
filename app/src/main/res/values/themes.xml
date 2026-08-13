@@ -1,0 +1,125 @@
+<resources>
+
+    <!-- Tema UTAMA — untuk semua halaman biasa -->
+    <style name="Theme.BUMDesma"
+        parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#1A237E</item>
+        <item name="colorPrimaryVariant">#0D1757</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#FF6F00</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="android:windowBackground">#F0F4FF</item>
+        <item name="android:statusBarColor">#0D1757</item>
+    </style>
+
+    <!-- Tema khusus Dashboard Anggota — mendukung Mode Gelap & Terang -->
+    <style name="Theme.BUMDesma.Anggota" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#1A237E</item>
+        <item name="colorPrimaryVariant">#0D1757</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#FF6F00</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSurface">@color/da_card_bg</item>
+        <item name="colorOnSurface">@color/da_text_primary</item>
+        <item name="android:windowBackground">@color/da_window_bg_start</item>
+        <item name="android:statusBarColor">#0D1757</item>
+        <item name="android:navigationBarColor">@color/da_bottom_nav_bg</item>
+    </style>
+
+    <!-- Tema khusus Admin - Detail Proposal — mendukung Mode Gelap & Terang -->
+    <style name="Theme.BUMDesma.Admin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#1A237E</item>
+        <item name="colorPrimaryVariant">#0D1757</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#FF6F00</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSurface">@color/admin_card_bg</item>
+        <item name="colorOnSurface">@color/admin_text_primary</item>
+        <item name="android:windowBackground">@color/admin_window_bg</item>
+        <item name="android:statusBarColor">#0D1757</item>
+        <item name="android:navigationBarColor">@color/admin_window_bg</item>
+    </style>
+
+    <!-- Tema MAIN — halaman login, daftar, dashboard -->
+    <style name="Theme.BUMDesma.Main"
+        parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#1A237E</item>
+        <item name="colorPrimaryVariant">#0D1757</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="android:windowBackground">#F0F4FF</item>
+        <item name="android:statusBarColor">#1A237E</item>
+        <item name="android:navigationBarColor">#F0F4FF</item>
+    </style>
+
+    <!-- Tema SPLASH — saat SplashActivity berjalan -->
+    <style name="Theme.BUMDesma.Splash"
+        parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#1A237E</item>
+        <item name="android:windowBackground">#1A237E</item>
+        <item name="android:statusBarColor">#0D1757</item>
+        <item name="android:navigationBarColor">#1A237E</item>
+    </style>
+
+    <!-- Tema LAUNCH — muncul SEBELUM SplashActivity dimuat -->
+    <!-- Ini yang menghilangkan layar hitam di awal -->
+    <style name="Theme.BUMDesma.Launch"
+        parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_launch</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:statusBarColor">#0D1757</item>
+        <item name="android:navigationBarColor">#0D1757</item>
+        <item name="colorPrimary">#1A237E</item>
+    </style>
+    <style name="BarisInfoProfil">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+
+    <style name="LabelInfoProfil">
+        <item name="android:layout_width">130dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/da_text_tertiary</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="NilaiInfoProfil">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/da_text_primary</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PanduanJudulItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:textColor">@color/da_profil_nama</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PanduanIsiItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textColor">@color/da_profil_item_text</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <style name="PanduanIsiItemTerakhir" parent="PanduanIsiItem">
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="PanduanDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:background">@color/da_profil_divider</item>
+    </style>
+
+</resources>

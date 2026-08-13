@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="da_window_bg_start">#121218</color>
+    <color name="da_window_bg_end">#1A1A22</color>
+    <color name="da_card_bg">#1E1E28</color>
+    <color name="da_scrim_bg">#CC1E1E28</color>
+    <color name="da_info_box_bg">#2A2A36</color>
+    <color name="da_tagihan_bg">#1B3324</color>
+    <color name="da_tagihan_text_label">#A5D6A7</color>
+    <color name="da_tagihan_text_value">#81C784</color>
+    <color name="da_banner_ajukan_bg">#26262F</color>
+    <color name="da_carousel_bg_start">#3B2A5C</color>
+    <color name="da_carousel_bg_end">#2E2148</color>
+    <color name="da_carousel_title">#E1BEE7</color>
+    <color name="da_carousel_body">#CE93D8</color>
+    <color name="da_accent_text">#C5CAE9</color>
+    <color name="da_bottom_nav_bg">#1A1A22</color>
+    <color name="da_rekening_card_bg">#22283F</color>
+    <color name="da_rekening_nama_text">#9FA8DA</color>
+    <color name="da_rekening_ket_text">#C5CAE9</color>
+    <color name="da_status_sudah_dibagi">#8C9EFF</color>
+    <color name="da_info_alert_bg">#242C4A</color>
+    <color name="da_info_alert_text">#9FA8DA</color>
+    <color name="da_danger_text">#EF5350</color>
+
+    <!-- Tambahan untuk PengumumanActivity -->
+    <color name="da_text_secondary">#B0BEC5</color>
+</resources>

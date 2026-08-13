@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bg_splash"
+    android:padding="32dp">
+
+    <!-- Lingkaran putih di belakang logo -->
+    <FrameLayout
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginBottom="28dp">
+
+        <!-- Background lingkaran putih -->
+        <View
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:background="@drawable/bg_circle_logo"/>
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/img_logo_splash"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_bumdesma"
+            android:contentDescription="Logo BUMDesma"
+            android:padding="8dp"/>
+
+    </FrameLayout>
+
+    <!-- Nama Aplikasi -->
+    <TextView
+        android:id="@+id/tv_nama_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BUMDesma Randudongkal"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:shadowColor="#33000000"
+        android:shadowDx="1"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Garis pemisah dekoratif -->
+    <View
+        android:layout_width="60dp"
+        android:layout_height="3dp"
+        android:background="#FFD600"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Subjudul -->
+    <TextView
+        android:id="@+id/tv_subjudul_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sistem Informasi Pencatatan Kredit SPP"
+        android:textSize="13sp"
+        android:textColor="#BBDEFB"
+        android:gravity="center"
+        android:layout_marginBottom="52dp"/>
+
+    <!-- Loading indicator -->
+    <ProgressBar
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:indeterminateTint="#FFFFFF"
+        android:layout_marginBottom="52dp"/>
+
+    <!-- Versi + Copyright -->
+    <TextView
+        android:id="@+id/tv_versi_splash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Versi 1.0.0"
+        android:textSize="12sp"
+        android:textColor="#90CAF9"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="© 2026 BUMDesma Randudongkal"
+        android:textSize="11sp"
+        android:textColor="#5C6BC0"
+        android:layout_marginTop="4dp"/>
+
+</LinearLayout>

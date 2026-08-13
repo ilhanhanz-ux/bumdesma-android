@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- item_dropdown_kelompok.xml
+     Baris tunggal untuk item di dalam popup dropdown "Pilih Kelompok".
+     Dibuat terpisah dari android.R.layout.simple_list_item_1 supaya warna teks
+     ikut token admin_text_primary (adaptif values/ vs values-night/), bukan
+     warna default Android yang nyaris invisible di atas admin_card_bg gelap. -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="14dp"
+    android:textSize="15sp"
+    android:textColor="@color/admin_text_primary"
+    android:background="@color/admin_card_bg"
+    android:ellipsize="end"
+    android:maxLines="1"/>

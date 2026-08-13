@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/admin_window_bg">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:titleTextColor="#FFFFFF"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="#FFFFFF"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- FIX DARK/LIGHT MODE: disesuaikan dengan pola "Tenor (Jangka Waktu)" di
+                     activity_ajukan_proposal.xml — label statis terpisah di atas kotak,
+                     bukan hint Material yang mengambang. hintEnabled="false" mematikan
+                     mekanisme floating-hint sepenuhnya, jadi kotaknya jadi bordered box
+                     polos dan warnanya nggak lagi tergantung state fokus/terisi. -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih Kelompok"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/admin_accent_text"
+                    android:layout_marginBottom="6dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:hintEnabled="false"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    app:boxStrokeColor="@color/admin_input_stroke"
+                    app:endIconTint="@color/admin_text_secondary">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/spinner_kelompok"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        android:textColor="@color/admin_text_primary"
+                        android:popupBackground="@color/admin_card_bg"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_muat_tagihan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Muat Tagihan"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="8dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_ringkasan_pilihan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0 dipilih • Total Rp 0"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/admin_text_primary"/>
+
+                <TextView
+                    android:id="@+id/tv_pilih_semua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih Semua"
+                    android:textColor="@color/admin_accent_text"
+                    android:textStyle="bold"
+                    android:padding="6dp"/>
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="140dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_daftar_tagihan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    tools:listitem="@layout/item_tagihan_kelompok"
+                    tools:itemCount="4"/>
+
+                <TextView
+                    android:id="@+id/tv_kosong"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Pilih kelompok lalu tekan Muat Tagihan"
+                    android:textColor="@color/admin_text_tertiary"
+                    android:gravity="center"
+                    android:padding="24dp"/>
+
+                <ProgressBar
+                    android:id="@+id/progress_tagihan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"/>
+            </FrameLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/admin_card_bg"
+                android:layout_margin="16dp"
+                android:layout_marginTop="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <EditText
+                        android:id="@+id/et_nama_penyetor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nama ketua kelompok (penyetor)"
+                        android:textColor="@color/admin_text_primary"
+                        android:textColorHint="@color/admin_text_tertiary"
+                        android:layout_marginBottom="10dp"/>
+
+                    <ImageView
+                        android:id="@+id/image_view_preview"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:scaleType="centerCrop"
+                        android:background="@color/admin_window_bg"
+                        android:contentDescription="Preview bukti setor"
+                        android:layout_marginBottom="10dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="10dp">
+
+                        <Button
+                            android:id="@+id/btn_ambil_foto"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="4dp"
+                            android:text="Ambil Foto"/>
+
+                        <Button
+                            android:id="@+id/btn_pilih_galeri"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="4dp"
+                            android:text="Pilih dari Galeri"/>
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/et_keterangan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Keterangan (opsional)"
+                        android:inputType="textMultiLine"
+                        android:minLines="2"
+                        android:textColor="@color/admin_text_primary"
+                        android:textColorHint="@color/admin_text_tertiary"
+                        android:layout_marginBottom="12dp"/>
+
+                    <Button
+                        android:id="@+id/btn_simpan_setoran"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:text="Catat Setoran Kolektif"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#2E7D32"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

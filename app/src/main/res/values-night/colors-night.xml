@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="divider">#2E2E3A</color>
+
+    <!-- Status Warna versi gelap (lebih terang biar kontras di card gelap) -->
+    <color name="status_menunggu">#FFB74D</color>
+    <color name="status_disetujui">#66BB6A</color>
+    <color name="status_ditolak">#EF5350</color>
+    <color name="status_revisi">#64B5F6</color>
+    <color name="status_belum_bayar">#FFB74D</color>
+    <color name="status_lunas">#66BB6A</color>
+    <color name="status_terlambat">#E57373</color>
+
+    <!-- Background badge status versi gelap -->
+    <color name="badge_menunggu_bg">#3D2E12</color>
+    <color name="badge_disetujui_bg">#1B3324</color>
+    <color name="badge_ditolak_bg">#3A1515</color>
+
+    <!-- Dark mode support: ProposalDetailAdminActivity (versi gelap) -->
+    <color name="admin_window_bg">#12121C</color>
+    <color name="admin_card_bg">#1E1E2A</color>
+    <color name="admin_text_primary">#ECECF1</color>
+    <color name="admin_text_secondary">#A8A8B8</color>
+    <color name="admin_text_tertiary">#8A8A9C</color>
+    <color name="admin_accent_text">#7986CB</color>
+    <color name="admin_info_box_bg">#242432</color>
+    <color name="admin_tagihan_banner_bg">#16261C</color>
+    <color name="admin_tagihan_text">#81C784</color>
+    <color name="admin_secondary_btn_bg">#2A2A45</color>
+    <color name="admin_secondary_btn_text">#B8C0FF</color>
+
+    <!-- Dark mode support: DataAnggotaActivity + item_anggota (versi gelap) -->
+    <color name="admin_list_window_bg">#12121C</color>
+    <color name="admin_icon_box_teal_bg">#E0F2F1</color>
+    <color name="admin_icon_box_teal_text">#80CBC4</color>
+    <color name="admin_badge_aktif_bg">#163831</color>
+    <color name="admin_badge_aktif_text">#4DD0B1</color>
+    <color name="admin_badge_nonaktif_bg">#3A1B1B</color>
+    <color name="admin_badge_nonaktif_text">#EF9A9A</color>
+    <color name="admin_input_stroke">#4A4F5C</color>
+    <color name="admin_chip_stroke">#3D4A7A</color>
+
+    <!-- Dark mode support: DetailAnggotaActivity (versi gelap) -->
+    <color name="admin_detail_window_bg">#12121C</color>
+
+    <!-- Dark mode support: LaporanKeuanganActivity (versi gelap) -->
+    <color name="admin_laporan_window_bg">#12121C</color>
+    <color name="admin_bar_track_bg">#262640</color>
+
+    <!-- Riwayat Aktivitas -->
+    <color name="da_riwayat_bg">#121212</color>
+    <color name="da_riwayat_toolbar">#0D1258</color>
+    <color name="da_riwayat_toolbar_text">#FFFFFF</color>
+    <color name="da_riwayat_chip_bg">#1E1E1E</color>
+    <color name="da_riwayat_divider">#2C2C2C</color>
+    <color name="da_riwayat_empty_text">#8A8A8A</color>
+
+    <!-- Chip states -->
+    <color name="da_chip_bg_selected">#2C3577</color>
+    <color name="da_chip_bg_unselected">#2A2A2A</color>
+    <color name="da_chip_text_selected">#C5CBFA</color>
+    <color name="da_chip_text_unselected">#CFCFCF</color>
+
+    <!-- Riwayat Aktifitas - Card -->
+    <color name="da_riwayat_card_bg">#1E1E1E</color>
+    <color name="da_riwayat_text_primary">#EDEDED</color>
+    <color name="da_riwayat_text_secondary">#B0B0B0</color>
+    <color name="da_riwayat_text_tertiary">#8A8A8A</color>
+
+    <!-- Riwayat Aktifitas - Badge Nominal -->
+    <color name="da_riwayat_badge_navy">#7986CB</color>
+    <color name="da_riwayat_badge_green">#66BB6A</color>
+    <color name="da_riwayat_badge_red">#EF5350</color>
+    <color name="da_riwayat_badge_orange">#FFA726</color>
+    <color name="da_riwayat_badge_purple">#BA68C8</color>
+    <color name="da_riwayat_badge_default">#E0E0E0</color>
+
+    <!-- Kelola / Tambah / Edit Pengumuman -->
+    <color name="da_pengumuman_bg">#121212</color>
+    <color name="da_pengumuman_toolbar">#0D1258</color>
+    <color name="da_pengumuman_fab_bg">#3949AB</color>
+    <color name="da_pengumuman_empty_text">#8A8A8A</color>
+
+    <color name="da_pengumuman_card_bg">#1E1E1E</color>
+    <color name="da_pengumuman_text_primary">#EDEDED</color>
+    <color name="da_pengumuman_text_secondary">#B0B0B0</color>
+    <color name="da_pengumuman_text_tertiary">#8A8A8A</color>
+
+    <color name="da_pengumuman_label">#8C9EFF</color>
+    <color name="da_pengumuman_input_bg">#2A2A2A</color>
+    <color name="da_pengumuman_input_border">#444444</color>
+    <color name="da_pengumuman_input_hint">#8A8A8A</color>
+    <color name="da_pengumuman_button_bg">#3949AB</color>
+    <color name="da_pengumuman_button_text">#FFFFFF</color>
+
+    <!-- Profil Admin -->
+    <color name="da_profil_bg">#121212</color>
+    <color name="da_profil_header_bg">#1A237E</color>
+    <color name="da_profil_avatar_bg">#2A2A2A</color>
+    <color name="da_profil_ubah_foto">#90CAF9</color>
+    <color name="da_profil_nama">#FFFFFF</color>
+    <color name="da_profil_subtitle">#B0BEC5</color>
+
+    <color name="da_profil_card_bg">#1E1E1E</color>
+    <color name="da_profil_section_label">#8C9EFF</color>
+    <color name="da_profil_divider">#2C2C2C</color>
+    <color name="da_profil_item_text">#EDEDED</color>
+    <color name="da_profil_chevron">#8A8A8A</color>
+
+    <color name="da_profil_keluar_text">#EF5350</color>
+
+    <color name="da_text_primary">#FFFFFF</color>
+    <color name="da_text_tertiary">#9AA0A6</color>
+
+    <!-- Panduan Aplikasi & shared accent (dark mode) -->
+    <color name="da_background">#121212</color>
+    <color name="da_primary">#3949AB</color>
+    <color name="da_card_background">#1E1E1E</color>
+</resources>

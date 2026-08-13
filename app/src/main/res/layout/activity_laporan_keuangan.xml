@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/admin_laporan_window_bg">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#1A237E"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:titleTextColor="#FFFFFF"/>
+
+    <!-- Navigasi Bulan -->
+    <LinearLayout
+        android:id="@+id/layout_bulan_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/admin_card_bg"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/btn_bulan_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="‹"
+            android:textSize="20sp"
+            android:textColor="@color/admin_accent_text"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/tv_periode_bulan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/admin_text_primary"/>
+
+        <TextView
+            android:id="@+id/btn_bulan_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="›"
+            android:textSize="20sp"
+            android:textColor="@color/admin_accent_text"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+
+    <!-- Tab Selector -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/admin_card_bg">
+
+        <LinearLayout
+            android:id="@+id/tab_ringkasan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingVertical="12dp">
+            <TextView
+                android:id="@+id/tv_tab_ringkasan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ringkasan"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="@color/admin_accent_text"/>
+            <View
+                android:id="@+id/underline_ringkasan"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/admin_accent_text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_tunggakan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingVertical="12dp">
+            <TextView
+                android:id="@+id/tv_tab_tunggakan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tunggakan"
+                android:textSize="13sp"
+                android:textColor="@color/admin_text_tertiary"/>
+            <View
+                android:id="@+id/underline_tunggakan"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab_bulanan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingVertical="12dp">
+            <TextView
+                android:id="@+id/tv_tab_bulanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rekap Bulanan"
+                android:textSize="13sp"
+                android:textColor="@color/admin_text_tertiary"/>
+            <View
+                android:id="@+id/underline_bulanan"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"/>
+
+    <!-- ═══ TAB 1: RINGKASAN ═══ -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/layout_tab_ringkasan"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Kartu Stat -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/admin_card_bg">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Dana Beredar" android:textSize="11sp" android:textColor="@color/admin_text_tertiary"/>
+                        <TextView android:id="@+id/tv_dana_beredar" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/admin_accent_text"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="2dp"
+                    app:cardBackgroundColor="@color/admin_card_bg">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="Penerimaan Bulan Ini" android:textSize="11sp" android:textColor="@color/admin_text_tertiary"/>
+                        <TextView android:id="@+id/tv_penerimaan" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp" android:textSize="15sp" android:textStyle="bold" android:textColor="@color/status_disetujui"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Alert Tunggakan -->
+            <LinearLayout
+                android:id="@+id/banner_tunggakan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/badge_ditolak_bg"
+                android:padding="14dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="⚠️" android:textSize="18sp" android:layout_marginEnd="10dp"/>
+                <TextView android:id="@+id/tv_tunggakan_alert" android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:textSize="12sp" android:textColor="@color/status_ditolak"/>
+            </LinearLayout>
+
+            <!-- Kesehatan Portofolio -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/admin_card_bg"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Kesehatan Portofolio Kredit" android:textSize="13sp"
+                        android:textStyle="bold" android:textColor="@color/admin_accent_text" android:layout_marginBottom="12dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/bar_portofolio"
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bg_bar_track">
+
+                        <View android:id="@+id/bar_portofolio_lancar"
+                            android:layout_width="0dp" android:layout_height="match_parent"
+                            android:layout_weight="1" android:background="@drawable/bg_bar_fill_green"/>
+
+                        <View android:id="@+id/bar_portofolio_macet"
+                            android:layout_width="0dp" android:layout_height="match_parent"
+                            android:layout_weight="0" android:background="@drawable/bg_bar_fill_red"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+                        <TextView android:id="@+id/tv_kredit_lancar" android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:textSize="11sp" android:textColor="@color/status_disetujui"/>
+                        <TextView android:id="@+id/tv_kredit_macet" android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:gravity="end" android:textSize="11sp" android:textColor="@color/status_ditolak"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Proposal Menunggu -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/admin_card_bg">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="📋" android:textSize="20sp" android:layout_marginEnd="12dp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Proposal Menunggu Verifikasi"
+                        android:textSize="13sp" android:textColor="@color/admin_text_primary"/>
+                    <TextView android:id="@+id/tv_proposal_menunggu" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="16sp" android:textStyle="bold" android:textColor="@color/status_belum_bayar"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ═══ TAB 2: TUNGGAKAN ═══ -->
+    <LinearLayout
+        android:id="@+id/layout_tab_tunggakan"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_total_tunggakan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/admin_card_bg"
+            android:padding="14dp"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/status_ditolak"/>
+
+        <TextView
+            android:id="@+id/tv_empty_tunggakan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="60dp"
+            android:text="Tidak ada tunggakan 🎉"
+            android:textColor="@color/admin_text_tertiary"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_tunggakan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:clipToPadding="false"/>
+    </LinearLayout>
+
+    <!-- ═══ TAB 3: REKAP BULANAN ═══ -->
+    <LinearLayout
+        android:id="@+id/layout_tab_bulanan"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/admin_card_bg"
+            android:orientation="horizontal"
+            android:padding="14dp">
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total Pokok" android:textSize="10sp" android:textColor="@color/admin_text_tertiary"/>
+                <TextView android:id="@+id/tv_total_pokok" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/admin_accent_text"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total Bunga" android:textSize="10sp" android:textColor="@color/admin_text_tertiary"/>
+                <TextView android:id="@+id/tv_total_bunga" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/admin_accent_text"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total Diterima" android:textSize="10sp" android:textColor="@color/admin_text_tertiary"/>
+                <TextView android:id="@+id/tv_total_bayar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/status_disetujui"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/divider"/>
+
+        <TextView
+            android:id="@+id/tv_empty_bulanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="60dp"
+            android:text="Belum ada transaksi bulan ini"
+            android:textColor="@color/admin_text_tertiary"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_bulanan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:clipToPadding="false"/>
+    </LinearLayout>
+
+</LinearLayout>

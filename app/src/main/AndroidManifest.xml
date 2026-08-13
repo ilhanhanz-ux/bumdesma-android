@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Izin Internet — WAJIB untuk koneksi ke API -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="BUMDesma"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BUMDesma"
+        android:usesCleartextTraffic="true">
+
+        <!-- usesCleartextTraffic="true" WAJIB karena XAMPP menggunakan HTTP (bukan HTTPS) -->
+
+        <!-- Halaman pertama yang dibuka saat app dijalankan -->
+        <!-- Splash Screen — halaman pertama yang dibuka -->
+
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.BUMDesma.Launch">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- MainActivity (cek sesi, tidak perlu intent-filter) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+
+        <!-- Login (lama, generik - biarkan tetap ada tapi sudah tidak dipakai) -->
+        <activity android:name=".ui.LoginActivity"
+            android:exported="false"/>
+
+        <!-- Login terpisah per peran -->
+        <activity android:name=".ui.LoginAdminActivity"
+            android:exported="false"/>
+        <activity android:name=".ui.LoginAnggotaActivity"
+            android:exported="false"/>
+
+        <activity android:name=".ui.DaftarActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Daftar"/>
+
+        <activity android:name=".ui.LupaPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Main"/>
+
+        <!-- Admin -->
+        <activity android:name=".ui.admin.DashboardAdminActivity"
+            android:exported="false"/>
+        <activity android:name=".ui.admin.ProposalListAdminActivity"
+            android:exported="false"/>
+        <activity android:name=".ui.admin.ProposalDetailAdminActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Admin"/>
+        <activity android:name=".ui.admin.AngsuranListActivity"
+            android:exported="false"/>
+        <activity android:name=".ui.admin.DaftarTagihanActivity" android:exported="false" />
+        <activity android:name=".ui.admin.SetoranAngsuranActivity" android:exported="false" />
+        <activity android:name=".ui.admin.PengumumanAdminActivity" />
+        <activity android:name=".ui.admin.FormPengumumanActivity" />
+        <activity android:name=".ui.admin.PengelolaanAdminActivity" />
+        <activity android:name=".ui.admin.LaporanKeuanganActivity" />
+        <activity android:name=".ui.admin.ProfilAdminActivity"
+            android:theme="@style/Theme.BUMDesma.Admin" />
+        <activity android:name=".ui.admin.DataAnggotaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Admin" />
+        <activity android:name=".ui.admin.RiwayatAktifitasActivity"
+            android:exported="false" />
+        <activity android:name=".ui.admin.DetailAnggotaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Admin" />
+        <activity android:name=".ui.admin.VerifikasiPorsiActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Admin"/>
+        <activity android:name=".ui.admin.VerifikasiAnggotaListActivity" />
+        <activity android:name=".ui.admin.VerifikasiAnggotaDetailActivity" />
+        <activity
+            android:name=".ui.admin.SetoranKolektifActivity"
+            android:exported="false" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".ui.admin.PanduanAplikasiActivity"
+            android:exported="false" />
+
+        <!-- Anggota -->
+        <activity android:name=".ui.anggota.DashboardAnggotaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.AjukanProposalActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.StatusProposalActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.KelolaPorsiActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.AturPorsiAngsuranActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.TagihanPorsiSayaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.UploadBuktiPorsiActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.RiwayatPembayaranActivity"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.ProfilSayaActivity"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.PengumumanActivity"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.PengaturanActivity"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.UbahPasswordActivity"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.AktivitasActivity"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.BantuanActivity"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.RiwayatAktifitasAnggotaActivity"
+            android:theme="@style/Theme.BUMDesma.Anggota"/>
+        <activity android:name=".ui.anggota.AlokasiPinjamanActivity" />
+        <activity android:name=".ui.anggota.PanduanActivity" />
+
+    </application>
+</manifest>

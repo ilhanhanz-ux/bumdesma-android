@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_proposal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="@color/da_card_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Baris atas: No Proposal + Status Badge -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/tv_no_proposal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PRO-001"
+                android:textSize="11sp"
+                android:textColor="@color/da_text_tertiary"/>
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menunggu"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:background="@drawable/bg_badge_menunggu"
+                android:textColor="@color/status_menunggu"/>
+        </LinearLayout>
+
+        <!-- Nama Pengaju -->
+        <TextView
+            android:id="@+id/tv_nama_pengaju"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Anggota"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/da_text_primary"
+            android:layout_marginBottom="2dp"/>
+
+        <!-- Kelompok -->
+        <TextView
+            android:id="@+id/tv_kelompok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kelompok — Desa"
+            android:textSize="12sp"
+            android:textColor="@color/da_text_tertiary"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Garis -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Jumlah + Tanggal -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jumlah Pinjaman"
+                    android:textSize="11sp"
+                    android:textColor="@color/da_text_tertiary"/>
+                <TextView
+                    android:id="@+id/tv_jumlah_pinjaman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp 0"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/da_accent_text"/>
+
+                <!-- ═══════ BARU: muncul cuma kalau disetujui sebagian ═══════ -->
+                <TextView
+                    android:id="@+id/tv_jumlah_disetujui"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/status_disetujui"
+                    android:layout_marginTop="3dp"
+                    android:visibility="gone"/>
+                <!-- ═══════ akhir tambahan ═══════ -->
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="end">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal"
+                    android:textSize="11sp"
+                    android:textColor="@color/da_text_tertiary"/>
+                <TextView
+                    android:id="@+id/tv_tanggal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="12sp"
+                    android:textColor="@color/da_text_secondary"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Catatan Admin — tampil hanya jika ada isinya -->
+        <TextView
+            android:id="@+id/tv_catatan_admin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📝 Catatan admin"
+            android:textSize="12sp"
+            android:textColor="@color/status_ditolak"
+            android:background="@color/badge_ditolak_bg"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

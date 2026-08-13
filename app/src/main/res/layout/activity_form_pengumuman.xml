@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/da_pengumuman_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/da_pengumuman_toolbar"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:titleTextColor="#FFFFFF"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Judul"
+                android:textColor="@color/da_pengumuman_label"
+                android:textStyle="bold"
+                android:textSize="13sp"/>
+
+            <EditText
+                android:id="@+id/et_judul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_edittext_pengumuman"
+                android:padding="12dp"
+                android:hint="Contoh: Jadwal Pertemuan SPP"
+                android:textColor="@color/da_pengumuman_text_primary"
+                android:textColorHint="@color/da_pengumuman_input_hint"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal"
+                android:textColor="@color/da_pengumuman_label"
+                android:textStyle="bold"
+                android:textSize="13sp"/>
+
+            <EditText
+                android:id="@+id/et_tanggal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_edittext_pengumuman"
+                android:padding="12dp"
+                android:focusable="false"
+                android:clickable="true"
+                android:textColor="@color/da_pengumuman_text_primary"
+                android:textColorHint="@color/da_pengumuman_input_hint"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Isi Pengumuman"
+                android:textColor="@color/da_pengumuman_label"
+                android:textStyle="bold"
+                android:textSize="13sp"/>
+
+            <EditText
+                android:id="@+id/et_isi"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_edittext_pengumuman"
+                android:padding="12dp"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:hint="Tulis isi pengumuman di sini..."
+                android:textColor="@color/da_pengumuman_text_primary"
+                android:textColorHint="@color/da_pengumuman_input_hint"
+                android:textSize="14sp"/>
+
+            <Button
+                android:id="@+id/btn_simpan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/da_pengumuman_button_bg"
+                android:textColor="@color/da_pengumuman_button_text"
+                android:padding="14dp"
+                android:text="Terbitkan Pengumuman"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

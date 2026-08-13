@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/admin_window_bg">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#1A237E"
+            app:titleTextColor="#FFFFFF"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Loading -->
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Konten Detail -->
+            <LinearLayout
+                android:id="@+id/layout_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Card: Header Proposal -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    app:cardBackgroundColor="#1A237E">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tv_no_proposal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No. Proposal"
+                            android:textSize="12sp"
+                            android:textColor="#90CAF9"
+                            android:layout_marginBottom="4dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_nama_pengaju"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nama Anggota"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:id="@+id/tv_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MENUNGGU"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/status_menunggu"
+                            android:background="@drawable/bg_badge_menunggu"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="4dp"
+                            android:drawablePadding="6dp"
+                            android:gravity="center_vertical"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Card: Data Anggota -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:cardBackgroundColor="@color/admin_card_bg">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Data Anggota"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/admin_accent_text"
+                            android:drawableStart="@drawable/ic_person_24"
+                            android:drawableTint="@color/admin_accent_text"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp"/>
+
+                        <!-- Kelompok -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kelompok SPP"
+                            android:textSize="11sp"
+                            android:textColor="@color/admin_text_tertiary"/>
+                        <TextView
+                            android:id="@+id/tv_kelompok"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/admin_text_primary"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="10dp"/>
+
+                        <!-- Desa -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Desa"
+                            android:textSize="11sp"
+                            android:textColor="@color/admin_text_tertiary"/>
+                        <TextView
+                            android:id="@+id/tv_desa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/admin_text_primary"
+                            android:layout_marginBottom="10dp"/>
+
+                        <!-- Telepon -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No. Telepon"
+                            android:textSize="11sp"
+                            android:textColor="@color/admin_text_tertiary"/>
+                        <TextView
+                            android:id="@+id/tv_telepon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/admin_text_primary"
+                            android:layout_marginBottom="4dp"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- ═══════ BARU: Card Riwayat Transaksi Kelompok ═══════ -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_riwayat_kelompok"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:cardBackgroundColor="@color/admin_card_bg">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Riwayat Transaksi Kelompok"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/admin_accent_text"
+                            android:drawableStart="@drawable/ic_bar_chart_24"
+                            android:drawableTint="@color/admin_accent_text"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rekam jejak seluruh anggota di kelompok ini, bukan hanya pengaju"
+                            android:textSize="11sp"
+                            android:textColor="@color/admin_text_tertiary"
+                            android:layout_marginBottom="12dp"/>
+
+                        <!-- Baris riwayat per anggota diisi programatis lewat inflate -->
+                        <LinearLayout
+                            android:id="@+id/layout_riwayat_kelompok"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"/>
+
+                        <TextView
+                            android:id="@+id/tv_riwayat_kosong"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Belum ada anggota lain terdata di kelompok ini"
+                            android:textSize="13sp"
+                            android:textColor="@color/admin_text_tertiary"
+                            android:gravity="center"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- ═══════ akhir Riwayat Transaksi Kelompok ═══════ -->
+
+                <!-- Card: Detail Pinjaman -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:cardBackgroundColor="@color/admin_card_bg">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Detail Pinjaman"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/admin_accent_text"
+                            android:drawableStart="@drawable/ic_payments_24"
+                            android:drawableTint="@color/admin_accent_text"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp"/>
+
+                        <!-- Jumlah (besar) -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jumlah Pinjaman"
+                            android:textSize="11sp"
+                            android:textColor="@color/admin_text_tertiary"/>
+                        <TextView
+                            android:id="@+id/tv_jumlah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rp 0"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/admin_accent_text"
+                            android:layout_marginBottom="12dp"/>
+
+                        <!-- Grid: Jangka + Bunga -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="10dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/bg_info_box"
+                                android:padding="10dp"
+                                android:layout_marginEnd="6dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Jangka Waktu"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/admin_text_tertiary"/>
+                                <TextView
+                                    android:id="@+id/tv_jangka"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/admin_text_primary"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/bg_info_box"
+                                android:padding="10dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Bunga / Bulan"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/admin_text_tertiary"/>
+                                <TextView
+                                    android:id="@+id/tv_bunga"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/admin_text_primary"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Estimasi Cicilan -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_tagihan_banner"
+                            android:padding="12dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Estimasi Cicilan/Bulan"
+                                android:textSize="12sp"
+                                android:textColor="@color/admin_tagihan_text"
+                                android:drawableStart="@drawable/ic_bar_chart_24"
+                                android:drawableTint="@color/admin_tagihan_text"
+                                android:drawablePadding="6dp"
+                                android:gravity="center_vertical"/>
+                            <TextView
+                                android:id="@+id/tv_cicilan_estimasi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/status_disetujui"/>
+                        </LinearLayout>
+
+                        <!-- Tujuan -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tujuan Pinjaman"
+                            android:textSize="11sp"
+                            android:textColor="@color/admin_text_tertiary"/>
+                        <TextView
+                            android:id="@+id/tv_tujuan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/admin_text_primary"
+                            android:layout_marginBottom="10dp"/>
+
+                        <!-- Deskripsi -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Deskripsi Usaha"
+                            android:textSize="11sp"
+                            android:textColor="@color/admin_text_tertiary"/>
+                        <TextView
+                            android:id="@+id/tv_deskripsi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="@color/admin_text_primary"
+                            android:layout_marginBottom="10dp"/>
+
+                        <!-- Tanggal -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tanggal Pengajuan"
+                            android:textSize="11sp"
+                            android:textColor="@color/admin_text_tertiary"/>
+                        <TextView
+                            android:id="@+id/tv_tanggal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/admin_text_secondary"/>
+
+                        <!-- Catatan Admin -->
+                        <TextView
+                            android:id="@+id/tv_catatan_admin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:textColor="@color/status_ditolak"
+                            android:background="@color/badge_ditolak_bg"
+                            android:padding="12dp"
+                            android:layout_marginTop="10dp"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Card: Dokumen Pendukung -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_dokumen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:cardBackgroundColor="@color/admin_card_bg">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dokumen Pendukung"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/admin_accent_text"
+                            android:drawableStart="@drawable/ic_description_24"
+                            android:drawableTint="@color/admin_accent_text"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp"/>
+
+                        <!-- Tombol Lihat Dokumen Proposal -->
+                        <Button
+                            android:id="@+id/btn_lihat_dok_proposal"
+                            android:layout_width="match_parent"
+                            android:layout_height="52dp"
+                            android:text="Lihat Dokumen Proposal (PDF)"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:backgroundTint="#1A237E"
+                            android:drawableStart="@drawable/ic_description_24"
+                            android:drawableTint="#FFFFFF"
+                            android:drawablePadding="10dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
+                            android:layout_marginBottom="8dp"/>
+
+                        <!-- Tombol Lihat KTP (opsional, muncul jika ada) -->
+                        <Button
+                            android:id="@+id/btn_lihat_dok_ktp"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:text="Lihat Foto KTP"
+                            android:textColor="@color/admin_secondary_btn_text"
+                            android:textSize="13sp"
+                            android:backgroundTint="@color/admin_secondary_btn_bg"
+                            android:drawableStart="@drawable/ic_person_24"
+                            android:drawableTint="@color/admin_secondary_btn_text"
+                            android:drawablePadding="10dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
+                            android:layout_marginBottom="8dp"
+                            android:visibility="gone"/>
+
+                        <!-- Tombol Lihat Jaminan (opsional, muncul jika ada) -->
+                        <Button
+                            android:id="@+id/btn_lihat_dok_jaminan"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:text="Lihat Dokumen Jaminan"
+                            android:textColor="@color/admin_secondary_btn_text"
+                            android:textSize="13sp"
+                            android:backgroundTint="@color/admin_secondary_btn_bg"
+                            android:drawableStart="@drawable/ic_description_24"
+                            android:drawableTint="@color/admin_secondary_btn_text"
+                            android:drawablePadding="10dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
+                            android:visibility="gone"/>
+
+                        <!-- Pesan jika tidak ada dokumen sama sekali -->
+                        <TextView
+                            android:id="@+id/tv_dokumen_kosong"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tidak ada dokumen yang diunggah"
+                            android:textSize="13sp"
+                            android:textColor="@color/admin_text_tertiary"
+                            android:gravity="center"
+                            android:visibility="gone"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- ═══════ Persetujuan Jumlah ═══════ -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_persetujuan_jumlah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:cardBackgroundColor="@color/admin_card_bg">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Persetujuan Jumlah"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/admin_accent_text"
+                            android:drawableStart="@drawable/ic_payments_24"
+                            android:drawableTint="@color/admin_accent_text"
+                            android:drawablePadding="8dp"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="12dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="12dp">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/bg_info_box"
+                                android:padding="10dp"
+                                android:layout_marginEnd="6dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Dana Tersedia"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/admin_text_tertiary"/>
+                                <TextView
+                                    android:id="@+id/tv_dana_tersedia"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/admin_text_primary"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:background="@drawable/bg_info_box"
+                                android:padding="10dp">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Limit Anggota"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/admin_text_tertiary"/>
+                                <TextView
+                                    android:id="@+id/tv_limit_anggota"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/admin_text_primary"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Jumlah yang disetujui (Rp)"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:hintTextColor="@color/admin_accent_text"
+                            app:boxStrokeColor="@color/admin_accent_text">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_jumlah_disetujui"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/admin_text_primary"
+                                android:inputType="number"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <!-- ═══════ akhir Persetujuan Jumlah ═══════ -->
+
+                <!-- Card: Tombol Verifikasi -->
+                <LinearLayout
+                    android:id="@+id/layout_tombol_verifikasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Keputusan Verifikasi"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/admin_text_primary"
+                        android:layout_marginBottom="10dp"/>
+
+                    <!-- Tombol Setujui -->
+                    <Button
+                        android:id="@+id/btn_setujui"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:text="Setujui Proposal"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:backgroundTint="#2E7D32"
+                        android:drawableStart="@drawable/ic_verified_24"
+                        android:drawableTint="#FFFFFF"
+                        android:drawablePadding="10dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <!-- Tombol Revisi -->
+                    <Button
+                        android:id="@+id/btn_revisi"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:text="Minta Revisi"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:backgroundTint="#1565C0"
+                        android:drawableStart="@drawable/ic_refresh_24"
+                        android:drawableTint="#FFFFFF"
+                        android:drawablePadding="10dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <!-- Tombol Tolak -->
+                    <Button
+                        android:id="@+id/btn_tolak"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:text="Tolak Proposal"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:backgroundTint="#C62828"
+                        android:drawableStart="@drawable/ic_cancel_24"
+                        android:drawableTint="#FFFFFF"
+                        android:drawablePadding="10dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
